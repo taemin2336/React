@@ -29,6 +29,7 @@ function EventPractice() {
 
          <input type="text" name="message" placeholder="아무거나 입력" value={message} onChange={onChangeMessage} onKeyDown={onKeyDown} />
 
+         {/* 첫번째 input창과 두번째 input창 둘다 입력이 되었을때만 버튼 활성화 */}
          <button onClick={onClick} disabled={!username || !message}>
             확인
          </button>
