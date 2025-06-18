@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux'
-import movieSlice, { fetchMovies } from '../features/sliceNow'
+import { fetchMovies } from '../features/sliceNow'
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import Gernes from './Genres'
 
 function MovieMain() {
    const dispatch = useDispatch()
-   const { movie, loading, error } = useSelector((state) => state.movies)
+   const { movies, loading, error } = useSelector((state) => state.movies)
 
    useEffect(() => {
       dispatch(fetchMovies())
@@ -15,9 +17,15 @@ function MovieMain() {
    return (
       <div>
          <h1>지금 상영중인 영화입니다.</h1>
+         <Link to={'/genre'}>
+            <button style={{ border: '1px solid, black' }}>장르 종류</button>
+         </Link>
+
          <ul>
-            {movie.map((movie) => (
-               <li key={movie.id}>{movie.title}</li>
+            {movies.map((movie) => (
+               <Link key={movie.id} to={`/detail/${movie.id}`}>
+                  <li>{movie.title}</li>
+               </Link>
             ))}
          </ul>
       </div>

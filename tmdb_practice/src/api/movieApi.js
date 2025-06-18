@@ -16,7 +16,25 @@ export const getNow = async (page = 1) => {
       params: {
          language: 'ko-KR',
          page,
-         region: 'ko-KR',
+         region: 'KR',
+      },
+   })
+   return response
+}
+
+export const getNowDetail = async (movieId) => {
+   const response = await tmdbApi.get(`/movie/${movieId}`, {
+      params: {
+         language: 'ko-KR',
+      },
+   })
+   return response
+}
+
+export const getGenre = async () => {
+   const response = await tmdbApi.get('/genre/movie/list', {
+      params: {
+         language: 'ko-KR',
       },
    })
    return response

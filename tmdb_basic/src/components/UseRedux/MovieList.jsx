@@ -14,7 +14,7 @@ function MovieDetail() {
    }, [dispatch]) // useEffect안에서 dispatch 사용시 무조건 지정
 
    if (loading) return <p>로딩중</p>
-   if (error) return <P>Error: {error.message}</P>
+   if (error) return <p>Error: {error.message}</p>
 
    return (
       <div style={{ padding: '20px' }}>
